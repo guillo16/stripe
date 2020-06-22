@@ -21,4 +21,9 @@ class CategoriesTest < ApplicationSystemTestCase
     assert_equal root_path, page.current_path
     assert_text "Le Wagon"
   end
+
+  test "visiting the show" do
+    visit "category/5"
+    assert_selector 'h2', text: 'mochila'
+  end
 end
