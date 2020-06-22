@@ -9,15 +9,15 @@ class CategoriesTest < ApplicationSystemTestCase
   test "lets a signed in user create a new category" do
     login_as users(:george)
     visit "/categories/new"
-    save_and_open_screenshot
-
-    fill_in "category_title", with: "Le Wagon"
-    save_and_open_screenshot
-
-    click_on 'Create Category'
     # save_and_open_screenshot
 
-    # Should be redirected to Home with new product
+    fill_in "category_title", with: "Le Wagon"
+    fill_in "category_photo", with: "Le Wagon"
+
+    click_on 'Create Category'
+
+
+    # Should be redirected category show
     assert_equal root_path, page.current_path
     assert_text "Le Wagon"
   end
