@@ -8,14 +8,13 @@ class ProductsTest < ApplicationSystemTestCase
   login_as users(:george)
   visit "/products/new"
     # save_and_open_screenshot
-    puts @category
 
     fill_in "product_title", with: "Le Wagon"
     fill_in "product_photo", with: "Le Wagon"
     fill_in "product_description", with: 'Something'
-    fill_in 'category_id', with: @category
 
     click_on 'Create Product'
+
 
 
     # Should be redirected category show
