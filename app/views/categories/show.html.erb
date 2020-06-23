@@ -1,2 +1,14 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="d-flex justify-content-between">
+  <div>
+    <% @category.products.each do |product| %>
+    <%= link_to product.title, category_path(title: product.title)  %>
+    <% end %>
+  </div>
+  <div>
+    <% @products.each do |product| %>
+    <%= link_to product.title, product_path(product) %>
+    <% end %>
+  </div>
+</div>
+
+

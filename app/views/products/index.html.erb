@@ -1,0 +1,7 @@
+<% @categories.each do |category|%>
+<%= link_to category.title, category_path(category)  %>
+<% end %>
+<br><br><br>
+<% @products.each do |product| %>
+<%= link_to product.title, product_path(product)  %>
+<% end %>

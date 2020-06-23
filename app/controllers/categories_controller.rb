@@ -5,6 +5,13 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category = Category.find(params[:id])
+    @products = @category.products
+    if params['title']
+      @products = Product.where(title: params["title"])
+    else
+      @products
+    end
   end
 
   def new
