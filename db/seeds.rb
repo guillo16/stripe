@@ -20,12 +20,12 @@ Category.create! title: 'Snow'
 Category.create! title: 'Bike'
 
 
-categories = Category.all.sample
+categories = Category.all
 colors = ['Red', 'Blue', 'Black', 'White']
 puts 'creating products'
 
 10.times do
-  product.create! title: Faker::Commerce.product_name , description: Faker::Commerce.material, color: colors.sample, category_id: categories
+  Product.create! title: Faker::Commerce.product_name , description: Faker::Commerce.material, color: colors.sample, category: categories.sample
 end
 
 puts 'finish'
