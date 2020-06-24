@@ -14,18 +14,25 @@ Category.delete_all
 
 puts 'creating category'
 
-Category.create! title: 'Backpacks'
+backpack = Category.create! title: 'Backpacks'
 Category.create! title: 'Luggage'
 Category.create! title: 'Snow'
 Category.create! title: 'Bike'
 
 
-categories = Category.all
 colors = ['Red', 'Blue', 'Black', 'White']
 puts 'creating products'
 
-10.times do
-  Product.create! title: Faker::Commerce.product_name , description: Faker::Commerce.material, color: colors.sample, category: categories.sample
+5.times do
+  Product.create! title: 'The Backpack' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+end
+
+5.times do
+  Product.create! title: 'The Backpack Pro' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+end
+
+5.times do
+  Product.create! title: 'The hugger' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
 end
 
 puts 'finish'

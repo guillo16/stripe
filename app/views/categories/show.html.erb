@@ -1,7 +1,7 @@
 <div class="d-flex justify-content-between">
   <div>
-    <% @category.products.each do |product| %>
-    <%= link_to product.title, category_path(title: product.title)  %>
+    <% @category.products.uniq(&:color).each do |product| %>
+    <%= link_to product.color, category_path(color: product.color)  %>
     <% end %>
   </div>
   <div>
@@ -10,5 +10,3 @@
     <% end %>
   </div>
 </div>
-
-

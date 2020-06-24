@@ -7,8 +7,8 @@ class CategoriesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @products = @category.products
-    if params['title']
-      @products = Product.where(title: params["title"])
+    if params['color']
+      @products = Product.where(color: params["color"])
     else
       @products
     end
