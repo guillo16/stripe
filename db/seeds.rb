@@ -10,6 +10,22 @@ require 'faker'
 puts 'clearing database'
 
 Product.delete_all
+Category.delete_all
+
+puts 'creating category'
+
+Category.create! title: 'Backpacks'
+Category.create! title: 'Luggage'
+Category.create! title: 'Snow'
+Category.create! title: 'Bike'
+
+
+categories = Category.all.sample
+colors = ['Red', 'Blue', 'Black', 'White']
+puts 'creating products'
 
 10.times do
-  product.create
+  product.create! title: Faker::Commerce.product_name , description: Faker::Commerce.material, color: colors.sample, category_id: categories
+end
+
+puts 'finish'
