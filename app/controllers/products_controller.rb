@@ -1,11 +1,18 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
-
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
-    @products = Product.all
+    @product = Product.all
+    @categories = Category.all
+    if params['color']
+      @products = Product.where(color: params['color'])
+    else
+      @products = Product.all
+    end
   end
 
   def show
+    @products = Product.all
   end
 
   def new
@@ -25,15 +32,22 @@ class ProductsController < ApplicationController
   end
 
   def update
+    @product.update(product_params)
+    redirect_to product_path(@product)
   end
 
   def destroy
+    @product.destroy
+    redirect_to products_path
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :description, :photo, :category_id)
+    params.require(:product).permit(:title, :description, :photo, :stock, :color, :subtitle, :category_id)
   end
 
+  def set_product
+    @product = Product.friendly.find(params[:id])
+  end
 end

@@ -1,0 +1,20 @@
+<div class="product-index-wrapper">
+  <div>
+    <% @categories.each do |category|%>
+    <%= link_to category.title, category_path(category)  %>
+    <% end %>
+    <br><br><br>
+    <% @product.uniq(&:color).each do |product| %>
+    <%= link_to product.color, products_path(color: product.color)  %>
+    <% end %>
+  </div>
+  <div>
+    <% @products.each do |product| %>
+    <%= render 'shared/cards', product: product %>
+    <% end %>
+  </div>
+</div>
+
+
+
+

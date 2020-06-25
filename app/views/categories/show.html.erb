@@ -1,2 +1,12 @@
-<h1>Categories#show</h1>
-<p>Find me in app/views/categories/show.html.erb</p>
+<div class="d-flex justify-content-between">
+  <div>
+    <% @category.products.uniq(&:color).each do |product| %>
+    <%= link_to product.color, category_path(color: product.color)  %>
+    <% end %>
+  </div>
+  <div>
+    <% @products.uniq(&:title).each do |product| %>
+    <%= render 'shared/cards', product: product%>
+    <% end %>
+  </div>
+</div>

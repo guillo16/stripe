@@ -1,7 +1,10 @@
 <%= simple_form_for @product do |f| %>
 <%= f.input :title %>
+<%= f.input :subtitle %>
 <%= f.input :description %>
 <%= f.input :photo %>
+<%= f.input :color %>
+<%= f.input :stock %>
 <%= f.association :category %>
 <%= f.submit 'Create Product' %>
 <% end %>
