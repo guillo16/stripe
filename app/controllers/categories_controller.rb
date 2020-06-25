@@ -6,6 +6,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @categories = Category.all
     @products = @category.products
     if params['color']
       @products = Product.where(color: params["color"])
