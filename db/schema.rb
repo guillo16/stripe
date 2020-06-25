@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_25_131316) do
+ActiveRecord::Schema.define(version: 2020_06_25_131650) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,7 +45,9 @@ ActiveRecord::Schema.define(version: 2020_06_25_131316) do
     t.string "color"
     t.integer "stock"
     t.string "subtitle"
+    t.string "slug"
     t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 
   create_table "users", force: :cascade do |t|
