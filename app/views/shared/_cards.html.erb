@@ -2,6 +2,8 @@
   <%= link_to product_path(product) do %>
   <img src="<%= product.photo %>" alt="">
   <p><%= product.title %></p>
+  <p>Amount: <%= humanized_money_with_symbol(product.price) %></p>
+
   <% end %>
 </div>
 
