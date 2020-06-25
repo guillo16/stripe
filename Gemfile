@@ -28,6 +28,8 @@ gem 'jbuilder', '~> 2.5'
 gem 'redis', '~> 4.0'
 gem 'faker'
 gem 'friendly_id', '~> 5.2.4'
+
+gem 'money-rails'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
