@@ -1,12 +1,42 @@
+<div class="category-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <h2 class="text-center">SHOP</h2>
+</div>
 <div class="product-index-wrapper">
-  <div>
-    <% @categories.each do |category|%>
-    <%= link_to category.title, category_path(category)  %>
-    <% end %>
-    <br><br><br>
-    <% @product.uniq(&:color).each do |product| %>
-    <%= link_to product.color, products_path(color: product.color)  %>
-    <% end %>
+  <div class="category-navbar d-flex justify-content-between align-items-center">
+    <div>
+      <%= @products.uniq(&:title).count %> results
+    </div>
+    <button class="filter-button" onclick="showFiltersTwo()">
+      <span class="filter-text">
+        + OPEN FILTER
+      </span>
+      <span class="filter-text-2 none">
+        X CLOSE FILTER
+      </span>
+    </button>
+  </div>
+  <div class="filters-container none">
+    <h2 class="filter-title">Categories</h2>
+    <div class="filter-categories">
+      <%= link_to products_path do %>
+      <p><i class="far fa-circle"></i> All Products</p>
+      <% end %>
+      <% @categories.each do |category| %>
+
+      <%= link_to category_path(category) do%>
+      <p><i class="far fa-circle"></i> <%= category.title %></p>
+      <% end %>
+      <% end %>
+    </div>
+    <h2 class="filter-title">Colors</h2>
+    <div class="filter-color text-center">
+      <% @products.uniq(&:color).each do |product| %>
+      <%= link_to products_path(color: product.color) do %>
+      <i class="fas fa-check-circle" style="color:<%= product.color %>; font-size: 25px;"></i>
+      <p><%= product.color %></p>
+      <% end %>
+      <% end %>
+    </div>
   </div>
   <div>
     <% @products.each do |product| %>
@@ -14,6 +44,20 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+  const showFiltersTwo = () => {
+   const filters = document.querySelector('.filters-container');
+   filters.classList.toggle('show');
+
+   const buttonSecondary = document.querySelector('.filter-text-2');
+   buttonSecondary.classList.toggle('show');
+
+   const buttoPrimary = document.querySelector('.filter-text');
+   buttoPrimary.classList.toggle('none');
+ }
+</script>
 
 
 

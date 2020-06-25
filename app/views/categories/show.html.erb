@@ -6,11 +6,16 @@
     <div>
       <%= @category.products.uniq(&:title).count %> results
     </div>
-    <button class="filter-button" onclick="showFilter()">
-      + OPEN FILTER
+    <button class="filter-button" onclick="showFilters()">
+      <span class="filter-text">
+        + OPEN FILTER
+      </span>
+      <span class="filter-text-2 none">
+        X CLOSE FILTER
+      </span>
     </button>
   </div>
-  <div class="filters-container">
+  <div class="filters-container none">
     <h2 class="filter-title">Categories</h2>
     <div class="filter-categories">
       <%= link_to products_path do %>
@@ -39,3 +44,26 @@
     <% end %>
   </div>
 </div>
+
+
+<script>
+  const showFilters = () => {
+   const filters = document.querySelector('.filters-container');
+   filters.classList.toggle('show');
+
+   const buttonSecondary = document.querySelector('.filter-text-2');
+   buttonSecondary.classList.toggle('show');
+
+   const buttoPrimary = document.querySelector('.filter-text');
+   buttoPrimary.classList.toggle('none');
+ }
+</script>
+<style>
+  .none {
+    display: none;
+  }
+
+  .show {
+    display: block;
+  }
+</style>
