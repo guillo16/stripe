@@ -14,7 +14,7 @@
 
 <% end %>
 
-<p>Amount: <%= humanized_money_with_symbol(@product.price) %></p>
+<p>Amount: <%= @product.price %></p>
 <% if @product.stock >= 1 %>
 <%= form_tag line_items_path do %>
 <%= hidden_field_tag 'product_id', @product.id %>
