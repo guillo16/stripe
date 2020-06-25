@@ -3,5 +3,5 @@ class Product < ApplicationRecord
   friendly_id :subtitle, use: :slugged
   belongs_to :category
 
-  has_many :line_items
+  has_many :line_items, dependent: :destroy
 end
