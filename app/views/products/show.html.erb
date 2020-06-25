@@ -1,0 +1,16 @@
+<h2><%= link_to 'Products', products_path  %></h2>
+<img src="<%= @product.photo %>" alt="">
+<%= @product.subtitle %>
+<% product_title = @product.title %>
+<% product_id = @product.id %>
+<% product_ids = @products.filter { |product| product.id != product_id} %> %>
+<% product_links = product_ids.filter { |product| product.title == product_title} %>
+<% product_links.each do |product| %>
+<div class="product-small-image">
+  <%= link_to product_path(product) do  %>
+  <img src="<%= product.photo %>" alt="product-photo" style="height: 100px; width: 100px; object-fit: cover;">
+  <% end %>
+</div>
+
+<% end %>
+

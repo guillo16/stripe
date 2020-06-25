@@ -2,11 +2,17 @@ class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:show]
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   def index
+    @product = Product.all
     @categories = Category.all
-    @products = Product.all
+    if params['color']
+      @products = Product.where(color: params['color'])
+    else
+      @products = Product.all
+    end
   end
 
   def show
+    @products = Product.all
   end
 
   def new
