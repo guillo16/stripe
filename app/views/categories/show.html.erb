@@ -5,8 +5,8 @@
     <% end %>
   </div>
   <div>
-    <% @products.each do |product| %>
-    <%= link_to product.title, product_path(product) %>
+    <% @products.uniq(&:title).each do |product| %>
+    <%= render 'shared/cards', product: product%>
     <% end %>
   </div>
 </div>
