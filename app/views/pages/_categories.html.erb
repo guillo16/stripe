@@ -1,8 +1,10 @@
 <div class="home-categories-small">
   <% @categories.last(3).each do |category| %>
   <div class="home-small-card category-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category.photo %>)">
-    <h2><%= category.title %></h2>
-    <%= link_to 'Explore', category_path(category), class: 'btn-home'%>
-  </div>
-  <% end %>
+    <div class="text-center">
+     <h2><%= category.title %></h2>
+     <%= link_to 'Explore', category_path(category), class: 'btn-home'%>
+   </div>
+ </div>
+ <% end %>
 </div>
