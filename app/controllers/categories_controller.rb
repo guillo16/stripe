@@ -1,11 +1,11 @@
 class CategoriesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
+  before_action :set_category, only: [:show, :edit, :update, :destroy]
   def index
     @categories = Category.all
   end
 
   def show
-    @category = Category.find(params[:id])
     @products = @category.products
     if params['color']
       @products = Product.where(color: params["color"])
@@ -31,6 +31,8 @@ class CategoriesController < ApplicationController
   end
 
   def update
+    @category.update(category_params)
+    redirect_to category_path(@category)
   end
 
   def destroy
@@ -40,5 +42,9 @@ class CategoriesController < ApplicationController
 
   def category_params
     params.require(:category).permit(:title, :photo)
+  end
+
+  def set_category
+    @category = Category.friendly.find(params[:id])
   end
 end
