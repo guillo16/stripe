@@ -1,9 +1,20 @@
 <div class="product-card-container">
   <%= link_to product_path(product) do %>
-  <img src="<%= product.photo %>" alt="">
-  <p><%= product.title %></p>
-  <p>Amount: <%= humanized_money_with_symbol(product.price) %></p>
+  <div class="product-card-image">
+    <img src="<%= product.photo %>" alt="">
+  </div>
+  <div class="product-card-content">
+    <h2><%= product.title %></h2>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <i class="fas fa-star"></i>
+    <p>EVERYDAY SIMPLICITY</p>
+    <h3>USD <%= humanized_money(product.price) %><h3>
+  </div>
 
+  <hr>
   <% end %>
 </div>
 

@@ -9,30 +9,42 @@ require 'faker'
 
 puts 'clearing database'
 
+LineItem.delete_all
+Cart.delete_all
 Product.delete_all
 Category.delete_all
 
 puts 'creating category'
 
 backpack = Category.create! title: 'Backpacks'
-Category.create! title: 'Luggage'
-Category.create! title: 'Snow'
-Category.create! title: 'Bike'
+luggage = Category.create! title: 'Wheeled Luggage'
+snow = Category.create! title: 'Snow'
+bike = Category.create! title: 'Bike'
+accessories = Category.create! title: 'Accessories'
+photography = Category.create! title: 'Photography'
 
 
 colors = ['Red', 'Blue', 'Black', 'White']
 puts 'creating products'
 
-5.times do
-  Product.create! title: 'The Backpack' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+4.times do
+  Product.create! title: 'The Backpack' , price: 189, description: 'Very nice', color: colors.sample, category: backpack, stock: 10
 end
 
-5.times do
-  Product.create! title: 'The Backpack Pro' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+4.times do
+  Product.create! title: 'The Backpack Pro' , price: 199, description: 'Very nice', color: colors.sample, category: backpack, stock: 10
 end
 
-5.times do
-  Product.create! title: 'The hugger' , description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+4.times do
+  Product.create! title: 'The Hugger 30L' , price: 169, description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+end
+
+4.times do
+  Product.create! title: 'The Hugger 60L' , price: 179, description: 'Very nice', color: colors.sample, category: backpack, stock: 10
+end
+
+4.times do
+  Product.create! title: 'The Petite' , price: 159, description: 'Very nice', color: colors.sample, category: backpack, stock: 10
 end
 
 puts 'finish'

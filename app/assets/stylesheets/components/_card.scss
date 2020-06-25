@@ -1,7 +1,50 @@
 .product-card-container {
+
+}
+
+
+.product-card-image {
+  background-color: lightgrey;
   img {
     width: 100%;
-    height: 200px;
+    height: 332px;
     object-fit: cover;
+  }
+}
+
+.product-card-content {
+  text-align: center;
+  color: #4A494A;
+
+  h2 {
+    padding-top: 16px;
+    font-weight: bold;
+    font-size: 23px;
+    margin-bottom: 0px;
+  }
+
+  i {
+    color: yellow;
+    padding: 24px 0px;
+  }
+
+  p {
+    margin-top: 0px;
+    font-size: 11px;
+  }
+
+  h3 {
+    font-size: 18px;
+    font-weight: bold;
+
+  }
+}
+
+
+@media(max-width: 575px) {
+  .product-card-content {
+    h2 {
+      font-size: 16px;
+    }
   }
 }
