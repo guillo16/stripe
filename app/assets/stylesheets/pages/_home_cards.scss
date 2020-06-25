@@ -1,0 +1,63 @@
+//flexbox of the homepage
+.home-cards {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 10px;
+}
+
+//individual cards
+.home-card {
+  background-size: cover;
+  background-position: center;
+  height: 663px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+}
+
+.secondary {
+  height: 353px;
+}
+
+@media (max-width: 1199.98px) {
+  .home-card {
+    height: 450px;
+  }
+
+  .secondary {
+    height: 240px;
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .home-card {
+    height: 400px;
+  }
+
+  .secondary {
+    height: 200px;
+  }
+
+}
+
+@media(max-width: 575px) {
+  .home-cards {
+    display: block;
+  }
+
+}

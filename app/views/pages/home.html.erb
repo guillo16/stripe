@@ -1,6 +1,33 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
-<%= link_to 'categorias',categories_path %>
-<% @categories.each do |category| %>
-<%= link_to category.title, category_path(category)  %>
-<% end %>
+<section id="home-cards">
+  <%= render 'home_cards' %>
+</section>
+<h2 class="home-title"> Journey Nearby</h2>
+<h3 class="home-title-border"></h3>
+<p class="home-title-footer">Perfect bags for your backyard adventures.</p>
+<div class="homepage-wrapper">
+  <section id="home-products">
+    <div class="home-product-container">
+      <% @products.uniq(&:title).first(4).each do |product| %>
+      <%= render 'shared/cards', product: product%>
+      <% end %>
+    </div>
+  </section>
+  <section id="db-black">
+    <%= render 'db_black' %>
+  </section>
+  <h2 class="home-title"> Categories</h2>
+  <h3 class="home-title-border"></h3>
+  <section id="home-categories">
+    <%= render 'categories' %>
+  </section>
+  <section id='credit-cards'>
+    <%= render 'credit_cards' %>
+  </section>
+  <h2 class="home-title"> In The Wild</h2>
+  <h3 class="home-title-border"></h3>
+  <p class="home-title-footer">Our gear is travel tested by some of the world’s best athletes, adventurers and creators. We are proud to support and share these meaningful journeys from the Db Family.</p>
+  <section id="social">
+   <%= render 'social' %>
+ </section>
+</div>
+
