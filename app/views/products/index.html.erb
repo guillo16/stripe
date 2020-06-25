@@ -11,7 +11,7 @@
         + OPEN FILTER
       </span>
       <span class="filter-text-2 none">
-        X CLOSE FILTER
+        x CLOSE FILTER
       </span>
     </button>
   </div>
@@ -38,8 +38,8 @@
       <% end %>
     </div>
   </div>
-  <div>
-    <% @products.each do |product| %>
+  <div class="category-card-wrapper">
+    <% @products.uniq(&:title).each do |product| %>
     <%= render 'shared/cards', product: product %>
     <% end %>
   </div>
