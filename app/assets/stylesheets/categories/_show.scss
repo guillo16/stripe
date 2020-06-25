@@ -1,0 +1,9 @@
+.category-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+.category-card-wrapper {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-gap: 16px;
+}

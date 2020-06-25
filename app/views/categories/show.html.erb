@@ -1,10 +1,14 @@
-<div class="d-flex justify-content-between">
+<div class="category-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <h2><%= @category.title %></h2>
+</div>
+
+<div class="category-wrapper">
   <div>
     <% @category.products.uniq(&:color).each do |product| %>
     <%= link_to product.color, category_path(color: product.color)  %>
     <% end %>
   </div>
-  <div>
+  <div class="category-card-wrapper">
     <% @products.uniq(&:title).each do |product| %>
     <%= render 'shared/cards', product: product%>
     <% end %>
