@@ -2,12 +2,12 @@
   <h2 class="text-center"><%= @category.title %></h2>
 </div>
 <div class="category-wrapper">
-  <div class="category-navbar d-flex justify-content-between">
+  <div class="category-navbar d-flex justify-content-between align-items-center">
     <div>
       <%= @category.products.uniq(&:title).count %> results
     </div>
-    <button>
-      + Filtros
+    <button class="filter-button" onclick="showFilter()">
+      + OPEN FILTER
     </button>
   </div>
   <div class="filters-container">
@@ -33,11 +33,6 @@
       <% end %>
     </div>
   </div>
-
-
-
-
-
   <div class="category-card-wrapper">
     <% @products.uniq(&:title).each do |product| %>
     <%= render 'shared/cards', product: product%>
