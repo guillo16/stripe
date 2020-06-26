@@ -22,15 +22,31 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
-  font-size: 24px;
-  font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   margin-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
 }
 
 .secondary {
   height: 353px;
+}
+
+.home-card-content {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+
+  h5 {
+    color: white;
+    font-size: 11px;
+  }
+
+  p {
+   color: white;
+   font-size: 40px;
+   font-weight: bold;
+ }
 }
 
 @media (max-width: 1199.98px) {
@@ -53,7 +69,24 @@
     height: 200px;
   }
 
+  .home-card-content {
+
+    h5 {
+      color: white;
+      font-size: 11px;
+    }
+
+    p {
+     color: white;
+     font-size: 22px;
+     font-weight: bold;
+   }
+ }
+
 }
+
+
+
 
 @media(max-width: 575px) {
   .home-cards {
