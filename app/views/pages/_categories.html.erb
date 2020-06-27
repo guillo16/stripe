@@ -1,24 +1,15 @@
 <div class="home-categories-small">
-  <div class="home-small-card category-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_968/v1593271256/the-backpack_arj2oq.jpg)">
+  <% categories = @categories.filter do |cat| %>
+  <% cat.photo_secondary.present? %>
+  <% end %>
+  <% categories.reverse_each do |category| %>
+  <div class="home-small-card category-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= category.photo_secondary %>)">
     <div class="text-center">
-      <h2>Photography</h2>
-      <!-- link_to cars_path(brand: "lambo") -->
-      <%= link_to 'Explore', categories_path(title: 'photography'), class: 'btn-home'%>
+      <h2><%= category.title %></h2>
+      <%= link_to 'Explore', category_path(category), class: 'btn-home'%>
     </div>
   </div>
-  <div class="home-small-card category-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_653/v1593271267/8h5b3277-edit_tznask.jpg)">
-    <div class="text-center">
-
-      <h2>Bike</h2>
-      <%= link_to 'Explore', '#', class: 'btn-home'%>
-    </div>
-  </div>
-  <div class="home-small-card category-small" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_608/v1593271280/oskarbakke_japan_DSC7538-Redigera-2_wmfdlr.jpg)">
-    <div class="text-center">
-      <h2>Snow</h2>
-      <%= link_to 'Explore', '#', class: 'btn-home'%>
-    </div>
-  </div>
+  <% end %>
 </div>
 <div class="credit_card-container">
   <div class="credit-card-content">
