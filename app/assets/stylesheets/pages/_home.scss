@@ -1,1 +1,147 @@
-// Specific CSS for your home-page
+.home-title {
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #494949;
+  margin-top: 40px;
+
+}
+
+.home-title-border {
+  width: 30px;
+  border-bottom: 2px solid lightgrey;
+  margin: 0 auto;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+}
+
+.home-title-footer {
+  font-size: 16px;
+  color: #494949;
+  text-align: center;
+  width: 70%;
+  margin: 0 auto;
+  margin-bottom: 16px;
+}
+
+.homepage-wrapper {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.home-product-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin-bottom: 100px;
+}
+
+
+.home-small-card {
+  background-size: cover;
+  background-position: center;
+  height: 357px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  a {
+    text-decoration: none;
+    &:hover {
+      color: white;
+    }
+  }
+
+  h2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+}
+
+
+.db-black-container {
+ display: grid;
+ grid-template-columns: 1fr 1fr;
+ grid-gap: 32px;
+ align-items: center;
+ margin-bottom: 80px;
+}
+
+.db-black-content {
+
+  h2 {
+    font-size: 30px;
+    font-weight: bold;
+    color: #494949;
+  }
+
+  p {
+   font-size: 16px;
+   color: #494949;
+ }
+}
+
+.home-categories-small {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.category-small {
+  height: 277px;
+}
+
+
+
+@media (max-width: 991.98px) {
+
+  .home-product-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .category-small {
+    height: 200px;
+  }
+
+}
+
+
+
+@media(max-width: 575px) {
+  .home-product-container {
+    grid-template-columns: 1fr 1fr;
+  }
+  .home-title {
+    font-size: 20px;
+    margin-top: 30px;
+
+  }
+
+  .home-title-footer {
+    font-size: 14px;
+  }
+
+
+  .home-categories-small {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 16px;
+  }
+
+  .category-small {
+    height: 350px;
+  }
+
+  .db-black-container {
+   grid-template-columns: 1fr;
+ }
+
+ .db-black-content {
+   text-align: center;
+ }
+}

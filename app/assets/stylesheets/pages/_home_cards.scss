@@ -1,0 +1,96 @@
+//flexbox of the homepage
+.home-cards {
+  width: 90%;
+  margin: 0 auto;
+  margin-top: 60px;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create two equal columns that sits next to each other */
+.column {
+  flex: 50%;
+  padding: 0 10px;
+}
+
+//individual cards
+.home-card {
+  background-size: cover;
+  background-position: center;
+  height: 663px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-bottom: 20px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.secondary {
+  height: 353px;
+}
+
+.home-card-content {
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  text-align: center;
+
+  h5 {
+    color: white;
+    font-size: 11px;
+  }
+
+  p {
+   color: white;
+   font-size: 40px;
+   font-weight: bold;
+ }
+}
+
+@media (max-width: 1199.98px) {
+  .home-card {
+    height: 450px;
+  }
+
+  .secondary {
+    height: 240px;
+  }
+}
+
+@media (max-width: 991.98px) {
+
+  .home-card {
+    height: 400px;
+  }
+
+  .secondary {
+    height: 200px;
+  }
+
+  .home-card-content {
+
+    h5 {
+      color: white;
+      font-size: 11px;
+    }
+
+    p {
+     color: white;
+     font-size: 22px;
+     font-weight: bold;
+   }
+ }
+
+}
+
+
+
+
+@media(max-width: 575px) {
+  .home-cards {
+    display: block;
+  }
+
+}
