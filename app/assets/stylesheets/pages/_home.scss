@@ -54,6 +54,13 @@
       color: white;
     }
   }
+
+  h2 {
+    color: white;
+    font-size: 20px;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
 }
 
 
@@ -93,6 +100,10 @@
 
 @media (max-width: 991.98px) {
 
+  .home-product-container {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
   .category-small {
     height: 200px;
   }
@@ -102,6 +113,9 @@
 
 
 @media(max-width: 575px) {
+  .home-product-container {
+    grid-template-columns: 1fr 1fr;
+  }
   .home-title {
     font-size: 20px;
     margin-top: 30px;
