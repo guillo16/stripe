@@ -16,12 +16,24 @@ Category.delete_all
 
 puts 'creating category'
 
-backpack = Category.create! title: 'Backpacks'
-luggage = Category.create! title: 'Wheeled Luggage'
-snow = Category.create! title: 'Snow'
-bike = Category.create! title: 'Bike'
-accessories = Category.create! title: 'Accessories'
-photography = Category.create! title: 'Photography'
+backpack = Category.create! title: 'Backpacks',
+photo: '',
+photo_secondary: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288369/Backpack_index_utwqfr.jpg'
+luggage = Category.create! title: 'Wheeled Luggage',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288407/Product-luggage_hlqvzi.jpg',
+photo_secondary: ''
+snow = Category.create! title: 'Snow',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_1382/v1593288417/snow_product_b4qpvy.jpg',
+photo_secondary: 'https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_608/v1593271280/oskarbakke_japan_DSC7538-Redigera-2_wmfdlr.jpg'
+bike = Category.create! title: 'Bike',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_1353/v1593288378/Bike_product_vj4xsr.jpg',
+photo_secondary: 'https://res.cloudinary.com/dmbom1kyl/image/upload/c_scale,w_653/v1593271267/8h5b3277-edit_tznask.jpg'
+accessories = Category.create! title: 'Accessories',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288368/accessories_product_ykhicc.jpg',
+photo_secondary: ''
+photography = Category.create! title: 'Photography',
+photo: '',
+photo_secondary: ''
 
 
 colors = ['Red', 'Blue', 'Black', 'White']
