@@ -4,7 +4,7 @@
 </div>
 <div class="cart-container">
   <div class="cart-list-item">
-    <%= render(@cart.line_items) %>
+    <%= render(@cart.line_items.sort) %>
   </div>
   <div class="check-out-wrapper">
     <h2>Resumen de compra</h2>
@@ -21,10 +21,10 @@
         <h4>TOTAL</h4>
         <h2><span class="total-price"></span><%= number_to_currency(@cart.total_price) %></h2>
       </div>
-    <br>
-    <!--  -->
+      <br>
+      <!--  -->
+    </div>
   </div>
-</div>
 </div>
 
   <!--

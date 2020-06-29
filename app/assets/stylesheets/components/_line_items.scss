@@ -12,8 +12,8 @@
   padding-right: 10px;
   border-radius: 6px;
   img {
-    width: 200px;
-    height: 200px;
+    width: 120px;
+    height: 120px;
     object-fit: cover;
 
   }
@@ -22,8 +22,9 @@
 .line-content {
   flex: 0 0 60%;
   h2 {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
+    margin-bottom: 8px;
   }
   h3 {
     font-size: 12px;
@@ -51,6 +52,7 @@
   p {
     font-size: 12px;
     color: black;
+    margin-bottom: 2px;
   }
 }
 .line-description {

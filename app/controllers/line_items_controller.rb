@@ -2,7 +2,7 @@ class LineItemsController < ApplicationController
   include CurrentCart
   skip_before_action :authenticate_user!, only: [:show, :create, :edit, :update]
   before_action :set_line_item, only: [:show, :edit, :update, :destroy]
-  before_action :set_cart, only: [:create]
+  before_action :set_cart, only: [:create, :decrease, :increase]
 
   def index
     @line_items = LineItem.all
@@ -31,15 +31,8 @@ class LineItemsController < ApplicationController
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
   def update
-    respond_to do |format|
-      if @line_item.update(line_item_params)
-        format.html { redirect_to @line_item.cart }
-        format.json { render :show, status: :ok, location: @line_item }
-      else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
+    @line_item.update(line_item_params)
+    redirect_to @line_item.cart
   end
 
   def destroy
@@ -61,3 +54,31 @@ class LineItemsController < ApplicationController
     params.require(:line_item).permit(:product_id, :quantity)
   end
 end
+
+# def decrease
+  #   @line_item = LineItem.find(params[:id])
+  #   @line_item.decrement!(:quantity)
+  #   respond_to do |format|
+  #     if @line_item.save
+  #       format.html { redirect_to @line_item.cart, notice: '' }
+  #       format.js
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @line_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  # def increase
+  #   @line_item = LineItem.find(params[:id])
+  #   @line_item.increment!(:quantity)
+  #   respond_to do |format|
+  #     if @line_item.save
+  #       format.html { redirect_to @line_item.cart, notice: 'update' }
+  #       format.js
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @line_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
