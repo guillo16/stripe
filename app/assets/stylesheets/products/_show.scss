@@ -48,3 +48,17 @@
     object-fit: cover;
   }
 }
+
+
+
+.product-show-price {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   p {
+    margin-bottom: 0px;
+    margin-right: 40px;
+    font-size: 23px;
+   }
+
+}
