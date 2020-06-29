@@ -3,19 +3,16 @@
     <img src="<%= line_item.product.photo%>" alt="">
   </div>
   <div class="line-content">
-    <h2><%= line_item.product.subtitle %></h2>
-    <% if line_item.product.stock > 1 %>
-    <%= link_to  edit_line_item_path(line_item) do %>
-    <div class="line-quantity">
-      <%= line_item.quantity %>
-      <i class="fas fa-angle-down"></i>
-    </div>
-    <% end %>
-    <% else %>
-    <div class="line-quantity-last pt-1 pb-1">
-      <p><%= line_item.quantity %> <span style="font-size: 13px; color: grey;">ultima unidad</span></p>
-    </div>
-    <% end %>
+      <h2><%= line_item.product.subtitle %></h2>
+      <%= simple_form_for line_item, remote: true do |f| %>
+      <% numbers = (1..20) %>
+      <% stock = numbers.select do |number| %>
+      <% product_stock = line_item.product.stock %>
+      <%  number < product_stock %>
+      <% end %>
+      <p>Cantidad</p>
+      <%= f.input :quantity, :collection =>  stock, label: false, :input_html => { onchange: 'this.form.submit()', class: 'quantity-form' }  %>
+      <% end %>
     <div class="line-price">
       <p><strong>PRECIO:</strong> <%= number_to_currency(line_item.total_price) %></p>
     </div>
@@ -24,3 +21,12 @@
     </div>
   </div>
 </div>
+
+
+<style>
+  .quantity-form {
+    width: 80px;
+    border: none;
+    background-color: transparent;
+  }
+</style>
