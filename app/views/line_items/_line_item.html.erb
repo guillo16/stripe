@@ -4,13 +4,12 @@
   </div>
   <div class="line-content">
       <h2><%= line_item.product.subtitle %></h2>
-      <%= simple_form_for line_item, remote: true do |f| %>
+      <%= simple_form_for line_item do |f| %>
       <% numbers = (1..20) %>
       <% stock = numbers.select do |number| %>
       <% product_stock = line_item.product.stock %>
       <%  number < product_stock %>
       <% end %>
-      <p>Cantidad</p>
       <%= f.input :quantity, :collection =>  stock, label: false, :input_html => { onchange: 'this.form.submit()', class: 'quantity-form' }  %>
       <% end %>
     <div class="line-price">

@@ -27,33 +27,6 @@ class LineItemsController < ApplicationController
       render 'product/show'
     end
   end
-  def decrease
-    @line_item = LineItem.find(params[:id])
-    @line_item.decrement!(:quantity)
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: '' }
-        format.js
-      else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  def increase
-    @line_item = LineItem.find(params[:id])
-    @line_item.increment!(:quantity)
-    respond_to do |format|
-      if @line_item.save
-        format.html { redirect_to @line_item.cart, notice: 'update' }
-        format.js
-      else
-        format.html { render :edit }
-        format.json { render json: @line_item.errors, status: :unprocessable_entity }
-      end
-    end
-  end
 
   # PATCH/PUT /line_items/1
   # PATCH/PUT /line_items/1.json
@@ -81,3 +54,31 @@ class LineItemsController < ApplicationController
     params.require(:line_item).permit(:product_id, :quantity)
   end
 end
+
+# def decrease
+  #   @line_item = LineItem.find(params[:id])
+  #   @line_item.decrement!(:quantity)
+  #   respond_to do |format|
+  #     if @line_item.save
+  #       format.html { redirect_to @line_item.cart, notice: '' }
+  #       format.js
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @line_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
+
+  # def increase
+  #   @line_item = LineItem.find(params[:id])
+  #   @line_item.increment!(:quantity)
+  #   respond_to do |format|
+  #     if @line_item.save
+  #       format.html { redirect_to @line_item.cart, notice: 'update' }
+  #       format.js
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @line_item.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
