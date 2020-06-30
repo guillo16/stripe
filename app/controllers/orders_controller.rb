@@ -6,8 +6,9 @@ class OrdersController < ApplicationController
     session = Stripe::Checkout::Session.create(
       payment_method_types: ['card'],
       line_items: [{
-        amount: cart.price_cents,
-        currency: 'us',
+        name: cart.line_items[0].product.title,
+        amount: cart.total_price,
+        currency: 'usd',
         quantity: 1
       }],
       success_url: order_url(order),
@@ -16,5 +17,9 @@ class OrdersController < ApplicationController
 
     order.update(checkout_session_id: session.id)
     redirect_to new_order_payment_path(order)
+  end
+
+  def show
+    @order = current_user.orders.find(params[:id])
   end
 end
