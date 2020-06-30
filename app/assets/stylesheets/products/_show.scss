@@ -40,6 +40,7 @@
 
 .product-small-image {
   padding: 16px 0px;
+  text-decoration: none;
 
   img {
     width: 100px;
@@ -57,8 +58,44 @@
    align-items: center;
    p {
     margin-bottom: 0px;
-    margin-right: 40px;
+    margin-right: 48px;
     font-size: 23px;
+    font-weight: bold;
    }
 
 }
+
+.product-content-footer{
+  text-align: center;
+  margin-top: 24px;
+  margin-bottom: 56px;
+
+   p {
+    font-size: 12px;
+    color: grey;
+   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
