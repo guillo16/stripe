@@ -30,6 +30,7 @@ gem 'faker'
 gem 'friendly_id', '~> 5.2.4'
 
 gem 'money-rails'
+gem 'stripe'
 # gem 'turbolinks_render'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
