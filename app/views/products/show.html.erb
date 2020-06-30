@@ -1,25 +1,40 @@
 <h2><%= link_to 'Products', products_path  %></h2>
-<img src="<%= @product.photo %>" alt="">
-<%= @product.subtitle %>
-<% product_title = @product.title %>
-<% product_id = @product.id %>
-<% product_ids = @products.filter { |product| product.id != product_id} %> %>
-<% product_links = product_ids.filter { |product| product.title == product_title} %>
-<% product_links.each do |product| %>
-<div class="product-small-image">
-  <%= link_to product_path(product) do  %>
-  <img src="<%= product.photo %>" alt="product-photo" style="height: 100px; width: 100px; object-fit: cover;">
-  <% end %>
+<div class="product-show-wrapper">
+  <div class="product-show-image">
+    <img src="<%= @product.photo %>" alt="<%= @product.title %>-photo">
+  </div>
+  <div class="product-show-content">
+    <h2><%= @product.title %></h2>
+    <h3><%= @product.subtitle %></h3>
+    <h4>SELECT STYLE</h4>
+    <%= render 'products_links' %>
+    <p><%= @product.description %></p>
+    <%= link_to 'See technical specipications >', '#', class: 'pb-5' %>
+    <hr>
+  </div>
+  <div class="product-show-price">
+    <div>
+      <p><%= @product.price %> EUR</p>
+    </div>
+    <div>
+      <% if @product.stock >= 1 %>
+      <%= form_tag line_items_path do %>
+      <%= hidden_field_tag 'product_id', @product.id %>
+      <%= submit_tag 'ADD TO CART', class: 'btn btn-product' %>
+      <% end %>
+      <% else %>
+      <button class="btn btn-product disabled ">AGOTADO</button>
+      <% end %>
+    </div>
+  </div>
+  <div class="product-content-footer">
+    <p>All duties paid. Always free returns.</p>
+    <p>****** 120 Reviews</p>
+  </div>
 </div>
 
-<% end %>
 
-<p>Amount: <%= @product.price %></p>
-<% if @product.stock >= 1 %>
-<%= form_tag line_items_path do %>
-<%= hidden_field_tag 'product_id', @product.id %>
-<%= submit_tag 'AGREGAR AL CARRITO', class: 'btn btn btn-lg btn-product btn-block' %>
-<% end %>
-<% else %>
-<button class="btn btn btn-lg btn-dark btn-block">AGOTADO</button>
-<% end %>
+
+
+
+
