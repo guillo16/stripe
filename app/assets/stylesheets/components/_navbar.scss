@@ -10,10 +10,29 @@
  position: absolute;
  left: 50%;
  transform: translatex(-50%);
+ p {
+  margin-bottom: 0px;
+  padding-right: 0px;
+ }
+ a {
+  margin-right: 0px;
+  padding-right: 0px;
+
+ }
 }
 
 .navbar-lewagon .navbar-brand img {
   width: 150px;
+}
+
+.cart-icon {
+  a {
+    color: grey;
+    text-decoration: none;
+    &:hover {
+      color: lightgrey;
+    }
+  }
 }
 
 
@@ -28,8 +47,8 @@
    }
 
    .nav-link {
-      font-size: 20px;
-   }
- }
+    font-size: 20px;
+  }
+}
 
 }
