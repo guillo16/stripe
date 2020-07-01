@@ -1,3 +1,4 @@
+<% if @order.state == 'paid' %>
 <div class="order-wrapper-background" style="background-image: linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1490818387583-1baba5e638af?ixlib=rb-1.2.1&auto=format&fit=crop&w=1831&q=80');">
   <div class="order-show-wrapper">
     <div class="d-flex align-items-center  justify-content-center">
@@ -7,26 +8,30 @@
     <div class="order-show-container d-flex">
       <div class="product-order-show">
         <img src="<%= line.product.photo %>" alt="">
+      </div>
+      <div class="pl-3">
+        <p><strong>Producto:</strong> <%= line.product.title %></p>
+        <p><strong>Cantidad:</strong> <%= line.quantity %></p>
+      </div>
     </div>
-    <div class="pl-3">
-      <p><strong>Producto:</strong> <%= line.product.title %></p>
-      <p><strong>Cantidad:</strong> <%= line.quantity %></p>
+    <% end %>
+    <div class="order-show-footer">
+      <p>Estado:<strong> <%= @order.state %> <i class="far fa-check-circle"></i></p></strong>
+      <p>Sub-total: <%= humanized_money_with_symbol(@order.amount) %></p>
+      <p>TOTAL: <strong>$<%= @order.amount %></strong></p>
+      <br>
     </div>
-  </div>
-  <% end %>
-  <div class="order-show-footer">
-    <p>Estado:<strong> <%= @order.state %> <i class="far fa-check-circle"></i></p></strong>
-    <p>Sub-total: <%= humanized_money_with_symbol(@order.amount) %></p>
-    <p>TOTAL: <strong>$<%= @order.amount %></strong></p>
-    <br>
-  </div>
-  <div class="order-show-button">
-    <%= link_to 'Perfil', '#', class: 'btn btn-product btn-lg btn-block'  %>
-    <br>
-    <%= link_to 'Ver mas Productos', root_path, class: 'btn btn-product btn-lg btn-block'  %>
-  </div>
-  <div class="text-center">
-    <p style="font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 20px;">En breve nos contactaremos con usted para convenir el pago y la entrega</p>
+    <div class="order-show-button">
+      <%= link_to 'Perfil', '#', class: 'btn btn-product btn-lg btn-block'  %>
+      <br>
+      <%= link_to 'Ver mas Productos', root_path, class: 'btn btn-product btn-lg btn-block'  %>
+    </div>
+    <div class="text-center">
+      <p style="font-size: 12px; font-weight: bold; margin-bottom: 0px; margin-top: 20px;">En breve nos contactaremos con usted para convenir el pago y la entrega</p>
+    </div>
   </div>
 </div>
-</div>
+<% else %>
+seguir comprando
+<%= link_to 'CArrito', root_path  %>
+<% end %>
