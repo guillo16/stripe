@@ -7,7 +7,16 @@
 
   <div class='d-flex align-items-center'>
     <div class="d-md-none mr-3">
-      <i class="fas fa-shopping-bag"></i>
+      <div class="cart-icon">
+        <%= link_to cart_path(@cart) do %>
+        <span class="icon is-small">
+          <i class="fas fa-shopping-bag"></i>
+        </span>
+        <% if total_cart_items %>
+        <span><%= cart_count_over_one %></span>
+        <% end %>
+        <% end %>
+      </div>
     </div>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -48,7 +57,16 @@
   </div>
 
   <div class="d-none d-md-block">
-    <i class="fas fa-shopping-bag"></i>
+    <div class="cart-icon">
+      <%= link_to cart_path(@cart) do %>
+      <span class="icon is-small">
+        <i class="fas fa-shopping-bag"></i>
+      </span>
+      <% if total_cart_items %>
+      <span><%= cart_count_over_one %></span>
+      <% end %>
+      <% end %>
+    </div>
   </div>
 </div>
 
