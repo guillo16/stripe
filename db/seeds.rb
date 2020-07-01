@@ -17,7 +17,7 @@ Category.delete_all
 puts 'creating category'
 
 backpack = Category.create! title: 'Backpacks',
-photo: '',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288369/Backpack_index_utwqfr.jpg',
 photo_secondary: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288369/Backpack_index_utwqfr.jpg'
 luggage = Category.create! title: 'Wheeled Luggage',
 photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288407/Product-luggage_hlqvzi.jpg',
@@ -32,7 +32,7 @@ accessories = Category.create! title: 'Accessories',
 photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288368/accessories_product_ykhicc.jpg',
 photo_secondary: ''
 photography = Category.create! title: 'Photography',
-photo: '',
+photo: 'https://res.cloudinary.com/dmbom1kyl/image/upload/v1593288368/accessories_product_ykhicc.jpg',
 photo_secondary: ''
 
 
