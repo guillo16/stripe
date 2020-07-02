@@ -21,5 +21,9 @@ class OrdersController < ApplicationController
 
   def show
     @order = current_user.orders.find(params[:id])
+    if @order.state == 'paid'
+      @cart = Cart.find(session[:cart_id])
+      session[:cart_id] = nil
+    end
   end
 end
