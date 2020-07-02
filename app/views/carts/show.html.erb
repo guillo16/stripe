@@ -22,9 +22,15 @@
         <h2><span class="total-price"></span><%= number_to_currency(@cart.total_price) %></h2>
       </div>
       <br>
+      <% if @cart.total_price > 1 %>
       <%= form_tag orders_path do %>
       <%= hidden_field_tag 'cart_id', @cart.id %>
-      <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+      <%= submit_tag 'Purchase', class: 'btn btn-primary btn-block' %>
+      <% end %>
+      <% else %>
+      <%= link_to 'Back', :back, class: 'btn btn-dark btn-block mb-3' %>
+      <p style="color: grey;
+      font-size: 14px;">Yo must have an item to buy!</p>
       <% end %>
     </div>
   </div>
